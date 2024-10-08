@@ -1,17 +1,15 @@
-import { useState } from 'react'
 
-
-import BasicMenu from './components/Header/BasicMenu'
+import Navbar from "./components/Navbar";
 
 
 function App() {
-  
-
   return (
-    <>
-     <BasicMenu/>
-    </>
-  )
+    <div className="">
+      {/* Navbar */}
+      <Navbar />
+     
+    </div>
+  );
 }
 
-export default App
+export default App;
