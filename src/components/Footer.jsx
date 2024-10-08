@@ -1,6 +1,6 @@
 import { BsTwitter, BsInstagram, BsFacebook } from "react-icons/bs";
 import { FaSnapchatGhost } from "react-icons/fa";
-
+import '../styles/Footer.css';
 
 const Footer = () => {
   const icons = [

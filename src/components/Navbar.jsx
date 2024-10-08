@@ -1,45 +1,73 @@
-import React from "react";
-import logo from "../assets/logo1.png";
-import { BiWorld, BiUser } from "react-icons/bi";
-import { FiSearch } from "react-icons/fi";
-import '../styles/navbar.css';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import '../styles/Navbar.css';
 
+export default function BasicMenu() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-const Navbar = () => {
   return (
-    <div className="navbar">
-      <div className="navbar-container">
-        {/* Left */}
-        <div className="navbar-logo">
-          <img src={logo} alt="Logo" />
-        </div>
-        {/* Middle */}
-        <div className="navbar-search">
-          <input type="search" placeholder="" />
-          <div className="navbar-search-options">
-            <button>Place</button>
-            <button>Time</button>
-            <button className="navbar-search-group-size">Group Size</button>
-          </div>
-          <div className="navbar-search-icon">
-            <FiSearch />
-          </div>
-        </div>
-        {/* Right */}
-        <div className="navbar-right">
-          <p>Rent House</p>
-          <div className="navbar-right-language">
-            <BiWorld />
-            <div>EN</div>
-          </div>
-          <div className="navbar-right-signin">
-            <p>Sign in</p>
-            <BiUser />
-          </div>
-        </div>
+    <div>
+      <div
+        id="basic-button"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+        className="profile-menu-flex"
+      >
+        <MenuRoundedIcon />
+        <AccountCircleRoundedIcon />
       </div>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+        sx={{
+          ".MuiPaper-root": {
+            minWidth: "200px",
+            borderRadius: "1rem",
+            boxShadow: "0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%)",
+          },
+        }}
+      >
+        <MenuItem className="menu-items" onClick={handleClose}>
+          Signup
+        </MenuItem>
+        <MenuItem onClick={handleClose} className="menu-items">
+          Login
+        </MenuItem>
+        <div
+          style={{
+            height: "1px",
+            backgroundColor: "var(--grey)",
+            width: "100%",
+          }}
+        />
+        <MenuItem onClick={handleClose} className="menu-items">
+          Airbnb Your Home
+        </MenuItem>
+        <MenuItem onClick={handleClose} className="menu-items">
+          Host an experience
+        </MenuItem>
+        <MenuItem onClick={handleClose} className="menu-items">
+          Help
+        </MenuItem>
+      </Menu>
     </div>
   );
-};
-
-export default Navbar;
+}
