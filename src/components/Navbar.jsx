@@ -2,7 +2,8 @@ import React from "react";
 import logo from "../assets/logo1.png";
 import { BiWorld, BiUser } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
-import './Navbar.css';
+import '../styles/navbar.css';
+
 
 const Navbar = () => {
   return (
