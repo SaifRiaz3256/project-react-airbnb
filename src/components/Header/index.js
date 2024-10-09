@@ -1,13 +1,11 @@
 import React from "react";
-import logo from "../../assets/long-logo.png";
-
+import logo from "../../assets/logo/long-logo.png";
+import "./styles.css";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import LanguageIcon from "@mui/icons-material/Language";
-import BasicMenu from "./Navbar";
+import BasicMenu from "./ProfileMenu";
 import SimpleBottomNavigation from "./BottomNav";
-
-
-import '../styles/A.css';
+import MobileSearchBar from "../MobileSearchBar";
 
 function Header() {
   return (
