@@ -4,7 +4,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import '../styles/Navbar.css';
+import "../styles/A.css";
+
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);

@@ -1,12 +1,12 @@
+import Header from "./components/Header";
+import Footer from "./components/Footer.jsx";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="">
       {/* Navbar */}
-      <Navbar />
+      <Header />
       <Footer/>
     </div>
   );
