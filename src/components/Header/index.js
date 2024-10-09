@@ -12,9 +12,22 @@ function Header() {
     <div className="navbar">
       <img src={logo} alt="logo" className="navbar-logo" />
       <div className="search-bar">
-        <div className="search-bar-text">Anywhere</div>
-        <div className="search-bar-text">Any Week</div>
-        <div className="search-bar-text2">Add guests</div>
+        <div className="search-bar-text">Where
+          <div className="search-bar-text2">Search Destinations</div>
+        </div>
+
+        <div className="search-bar-text">Check in
+       
+          <div className="search-bar-text2">Add dates</div>
+        </div>
+        <div className="search-bar-text">Check out
+       
+          <div className="search-bar-text2">Add Dates</div>
+        </div>
+        <div className="search-bar-text">Who
+        
+          <div className="search-bar-text2">Add Guests</div>
+        </div>
         <div className="search-icon-div">
           <SearchRoundedIcon className="search-icon" />
         </div>
