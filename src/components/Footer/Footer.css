@@ -1,24 +1,73 @@
 .footer {
     background-color: white;
-    border-top-width: 2px;
-    box-shadow: 0 4px 6px rgba(209, 213, 219, 0.5);
-    position: sticky;
-    bottom: 0;
-    height: 5rem;
-    width: 100%;
+    border-top: 2px solid #eaeaea;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 2rem 0; /* Add vertical padding */
+   
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1.5rem; /* Add horizontal padding */
+   
+
+  }
+  
+  .footer-section {
+    margin-bottom: 2rem; /* Add space between sections */
+    display: inline-block;
+    margin-right: 2rem;
+    
+   
+  }
+  
+  .footer-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links {
+    color: #6b7280; /* Gray color */
+    margin-bottom: 0.5rem; /* Space between links */
+  }
+  
+  .footer-links:hover {
+    color: black; /* Change color on hover */
+    cursor: pointer;
+  }
+  
+  .social-icons {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem; /* Space between icons */
+    margin-bottom: 1rem; /* Space below icons */
+    border-top: 2px solid #eaeaea;
+    padding-top: 0.3rem;
+    
   }
   
-  .footer-icon {
-    font-size: 30px;
-    color: #4B5563;
-    transition: color 100ms ease-out;
+  .social-icon {
+    font-size: 1.5rem; /* Adjust size */
+    color: #6b7280; /* Gray color */
+    transition: color 0.2s;
+   
   }
   
-  .footer-icon:hover {
-    color: black;
+  .social-icon:hover {
+    color: black; /* Change color on hover */
+  }
+  
+  .footer-note {
+    text-align: center;
+    color: #9ca3af; /* Light gray */
+    font-size: 0.875rem; /* Smaller font size */
+  }
+  
+  @media (max-width: 640px) {
+    .footer-section {
+      margin-bottom: 1rem; /* Reduce spacing on small screens */
+    }
   }
   
