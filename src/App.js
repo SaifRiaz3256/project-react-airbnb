@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-
-
+import { list, list2 } from "./assets/cards-list";
 import Cards from "./components/Cards";
+import Nav_Logos from "./components/Nav-Logos";
 import Header from "./components/Header";
 
 function App() {
@@ -10,6 +10,10 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Nav_Logos
+        selectedFilter={selectedFilter}
+        setSelectedFilter={setSelectedFilter}
+      />
       {selectedFilter == 0 ? <Cards list={list} /> : <Cards list={list2} />}
     </div>
   );
