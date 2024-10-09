@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "./Cards_Styling.css";
 import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -42,4 +42,16 @@ function Card({ card }) {
   );
 }
 
-export default Card;
+function Multiple_Cards({ list }) {
+  return (
+    <div className="cards-flex">
+      {list.map((card, i) => (
+        <Card card={card} key={i} />
+      ))}
+    </div>
+  );
+}
+
+export default Multiple_Cards;
+
+
