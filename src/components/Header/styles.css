@@ -61,6 +61,8 @@
 .airbnb-your-home:hover {
   background-color: var(--light-grey);
 }
+
+/* Search bar in the next row */
 .search-bar {
   display: flex;
   justify-content: space-between;
@@ -78,10 +80,9 @@
 }
 
 .search-bar.small {
-  padding: 0.35rem 1.5rem;/* Smaller padding when scrolled */
+  padding: 0.35rem 1.5rem; /* Smaller padding when scrolled */
   font-size: 14px; /* Smaller font size when scrolled */
 }
-
 
 .search-bar-text {
   font-size: 0.8rem;
@@ -110,16 +111,26 @@
 /* Responsive styling for small screens */
 @media only screen and (max-width: 768px) {
   .Logo-Navbar {
-    display: none;
-   
+    display: none; /* Hide the Logo Navbar */
+  }
+  .navbar {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
+  /* Search bar adjustments */
   .search-bar {
-    
-    font-size: 12px;
+    padding: 0.5rem; /* Adjust padding */
+    margin-top: 1rem; /* Maintain margin above */
+    border: none; /* Remove border */
+    background-color: white; /* Ensure background is white */
+    border-radius: 1rem; /* Rounded corners */
   }
 
-  .profile-container {
-    justify-content: center; /* Center profile options on smaller screens */
+  /* Hide all text in search bar */
+  .search-bar-text,
+  .search-bar-text2 {
+    display: none; /* Hide text in mobile mode */
   }
+
 }
