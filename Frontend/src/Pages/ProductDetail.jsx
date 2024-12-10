@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AppContext } from "../Context/AppContext";
 import { FaHeart, FaShare } from "react-icons/fa";
-import "../Styles/ProductDetail.css";
+
 
 const ProductDetail = () => {
   const { id } = useParams();
