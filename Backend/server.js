@@ -1,16 +1,24 @@
-const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 5000;
+const express = require("express")
+const data = require("./data")
+const app = express()
+const cors = require('cors');
+
+const port = 5000 || process.env.PORT
+
+app.use(express.json())
+app.use(cors())
 
 
-app.use(express.json());
+app.get("/", (req, res) => {
+    res.send("Api Working Properly")
+})
+
+app.get("/api/listing", (req, res) => {
+    res.json({ data })
+})
 
 
-app.get('/', (req, res) => {
-    res.send('Backend is working!');
-});
+app.listen(port, () => {
+    console.log(`Server is listening on ${port}`);
 
-
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+})
