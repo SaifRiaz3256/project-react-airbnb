@@ -13,6 +13,7 @@ const BookingPage = () => {
     .find((item) => item.id === parseInt(id, 10));
 
   // Form state for booking details
+  
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
   const [guestCount, setGuestCount] = useState(1);

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import "./Cards_Styling.css";
 import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,10 +7,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
+import { AppContext } from "../../Context/AppContext";
 
+// Card Component
 function Card({ card }) {
   return (
-    <div className="card-box">
+    <Link to={`/product/${card.id}`} className="card-box">
       <Swiper
         slidesPerView={1}
         spaceBetween={15}
@@ -22,7 +25,7 @@ function Card({ card }) {
       >
         {card.imgSrc.map((src, i) => (
           <SwiperSlide key={i}>
-            <img src={src} className="card-img" />
+            <img src={src} className="card-img" alt={`Image ${i + 1}`} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -38,14 +41,21 @@ function Card({ card }) {
       <p style={{ margin: "0.2rem", fontSize: "1rem", color: "var(--black" }}>
         <span style={{ fontWeight: "600" }}>₹{card.price}</span> night
       </p>
-    </div>
+    </Link>
   );
 }
 
-function Multiple_Cards({ list }) {
+// Multiple Cards Component
+function Multiple_Cards() {
+  const { selectedCategory } = useContext(AppContext);
+
+  if (!selectedCategory) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="cards-flex">
-      {list.map((card, i) => (
+      {selectedCategory.item.map((card, i) => (
         <Card card={card} key={i} />
       ))}
     </div>
@@ -53,5 +63,3 @@ function Multiple_Cards({ list }) {
 }
 
 export default Multiple_Cards;
-
-
