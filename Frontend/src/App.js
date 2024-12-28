@@ -1,30 +1,60 @@
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Slide, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+import Layout from './components/ui/Layout';
+import IndexPage from './pages/IndexPage';
+import RegisterPage from './Pages/RegisterPage';
+import LoginPage from './Pages/LoginPage';
+import ProfilePage from './pages/ProfilePage';
+import PlacesPage from './pages/PlacesPage';
+import BookingsPage from './pages/BookingsPage';
+import PlacesFormPage from './pages/PlacesFormPage';
+import PlacePage from './pages/PlacePage';
+import SingleBookedPlace from './Pages/SingleBookedPlace';
+import axiosInstance from './utils/axios';
+import { UserProvider } from './providers/UserProvider';
+import { PlaceProvider } from './providers/PlaceProvider';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { getItemFromLocalStorage } from './utils';
+import NotFoundPage from './Pages/NotFoundPage';
 
-import NavLogo from "./components/NavBar_Logos/NavLogo.js";
-import Header from "./components/Header";
-import Footer from "./components/Footer/Footer.js";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProductDetail from "./Pages/ProductDetail";
-import Home from "./Pages/Homepage.jsx";
-import BookingPage from "./Pages/BookingPage";
+function App() {
+  useEffect(() => {
+    // set the token on refreshing the website
+    axiosInstance.defaults.headers.common[
+      'Authorization'
+    ] = `Bearer ${getItemFromLocalStorage('token')}`;
+  }, []);
 
-const App = () => {
   return (
-    <div>
-      <Router>
-        
-        <Header />
-        <NavLogo />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/book/:id" element={<BookingPage />} />
-        </Routes>
-   
-        <Footer />
-      </Router>
-    </div>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <UserProvider>
+        <PlaceProvider>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<IndexPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/account" element={<ProfilePage />} />
+              <Route path="/account/places" element={<PlacesPage />} />
+              <Route path="/account/places/new" element={<PlacesFormPage />} />
+              <Route path="/account/places/:id" element={<PlacesFormPage />} />
+              <Route path="/place/:id" element={<PlacePage />} />
+              <Route path="/account/bookings" element={<BookingsPage />} />
+              <Route
+                path="/account/bookings/:id"
+                element={<SingleBookedPlace />}
+              />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+          <ToastContainer autoClose={2000} transition={Slide} />
+        </PlaceProvider>
+      </UserProvider>
+    </GoogleOAuthProvider>
   );
-};
+}
 
 export default App;
